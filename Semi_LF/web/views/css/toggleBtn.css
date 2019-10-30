@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.toggleBG{
+	display:inline-block;
+	background: #CCCCCC;
+	width: 70px;
+	height: 30px;
+	border: 1px solid #CCCCCC;
+	border-radius: 15px;
+}
+
+.toggleFG{
+	background: #FFFFFF;
+	float:left;
+	width: 20px;
+	height: 20px;
+	border: none;
+	border-radius: 15px;
+	position: relative;
+	left: 0px;
+	top: 1px;
+}
