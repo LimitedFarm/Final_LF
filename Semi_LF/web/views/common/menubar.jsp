@@ -150,7 +150,7 @@
 </head>
 <body>
 	<!-- header역할을 하며 로그인, 회원가입, 메뉴바를 열수 있는 버튼을 생성 -->
-	<div class="navbar navbar-expand-sm bg-light navbar-dark fixed-top row" id="headerDiv"style="min-width: 1200px; z-index:1055; float:top;" >
+	<div class="navbar navbar-expand-sm bg-light navbar-dark fixed-top row" id="headerDiv" style="min-width: 1200px; max-height:100px; z-index:1055; float:top;" >
 		<div class="headerNavi col-sm-1" align="left" >
 			<input id="menuBtn" type="button">
 		</div>
@@ -160,13 +160,13 @@
 		<div class="headerNavi col-sm-3" id="rightMenu" style="min-width:500px;">
 			<% if(loginUser == null) {%>
 				<ul id="inlineUl">
-					<li><button id="loginBtn" class="genric-btn info circle" type="button" style="align:right;" data-toggle="modal" data-target="#loginModal">로그인</button></li>
-					<li><button id="signUpBtn" class="genric-btn info circle" type="button" style="align:right;" data-toggle="modal" data-target="#signupModal">회원가입</button></li>
+					<li><button id="loginBtn" class="genric-btn info circle" type="button" style="align:right; max-width:200px; max-height:50px;" data-toggle="modal" data-target="#loginModal">로그인</button></li>
+					<li><button id="signUpBtn" class="genric-btn info circle" type="button" style="align:right; max-width:200px; max-height:50px;" data-toggle="modal" data-target="#signupModal">회원가입</button></li>
 				</ul>
 			<%} else { %>
 				<ul id="inlineUl">
 					<li style="display:inline-block; vertical-align:middle"><%=loginUser.getUserName() %>님 환영합니다.</li>
-					<li><button id="logoutBtn" class="genric-btn info circle" type="button" style="align:right;">로그아웃</button></li>
+					<li><button id="logoutBtn" class="genric-btn info circle" type="button" style="align:right; max-width:200px; max-height:50px;">로그아웃</button></li>
 				</ul>
 			<%} %>
 		</div>
@@ -175,7 +175,7 @@
 	
 	<!-- 슬라이드 형식으로 버튼 클릭시 도출되는 메뉴바 -->
 	<div id="menu">
-		<a href="views/Main/MainPage.jsp" class="linkC"><span class="linkSpan"><i class="material-icons md-25">home</i></span>&nbsp;&nbsp;Home</a>
+		<a href="<%=request.getContextPath() %>/views/member/MainPag.jsp" class="linkC"><span class="linkSpan"><i class="material-icons md-25">home</i></span>&nbsp;&nbsp;Home</a>
 		<% if(loginUser == null) {%>
 		<a href="#loginBtn" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">account_circle</i></span>&nbsp;&nbsp;My Page</a>
 		<%} else if(loginUser.getGroupNum().equals("1")) {%>
@@ -185,11 +185,11 @@
 		<%} else if(loginUser.getGroupNum().equals("3")){%>
 		<a href="<%=request.getContextPath() %>/cuInfo.ad?currentPage=1" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">account_circle</i></span>&nbsp;&nbsp;Admin Page</a>
 		<%}%>
-		<a href="#" class="linkC"><span class="linkSpan"><i class="material-icons md-25">add_shopping_cart</i></span>&nbsp;&nbsp;상품 게시판</a>
+		<a href="/Semi_LF/list.po?cate=0" class="linkC"><span class="linkSpan"><i class="material-icons md-25">add_shopping_cart</i></span>&nbsp;&nbsp;상품 게시판</a>
 		<a href="#" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">shopping_basket</i></span>&nbsp;&nbsp;장바구니</a>
-		<a hr1ef="#" class="linkC"><span class="linkSpan"><i class="material-icons md-25">shopping_cart</i></span>&nbsp;&nbsp;HOME</a>
+		<a href="#" class="linkC"><span class="linkSpan"><i class="material-icons md-25">shopping_cart</i></span>&nbsp;&nbsp;HOME</a>
 		<a href="#" class="linkC"><span class="linkSpan"><i class="material-icons md-25">https</i></span>&nbsp;&nbsp;HOME</a>
-		<a href="#" class="linkC"><span class="linkSpan"><i class="material-icons md-25">question_answer</i></span>&nbsp;&nbsp;고객센터</a>
+		<a href="/Semi_LF/list.fo" class="linkC"><span class="linkSpan"><i class="material-icons md-25">question_answer</i></span>&nbsp;&nbsp;고객센터</a>
 	</div>
 	
 	

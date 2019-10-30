@@ -155,7 +155,9 @@
 			<button class="cateBtn" onclick = "cateBtn_Click(3);">견과류</button>
 		
 			<button class="cateBtn" onclick = "cateBtn_Click(4);">가공품</button>
-
+			<% if(sellerUser != null) {%>
+			<button class="cateBtn" onclick = "location='<%=request.getContextPath() %>/views/Board/PList.jsp'">상품 등록</button>
+			<%} %>
 		</div>
 	
 		<hr>
@@ -233,8 +235,7 @@
 		$(document).on('click', ".productWrap", function(){
 			var pId = $(this).find('input').val();
 			
-			alert(pId);
-		location.href = "<%=request.getContextPath()%>/board.do?pId="+pId;
+			location.href = "<%=request.getContextPath()%>/Board.do?pId="+pId;
 		});
 	</script>
 </body>

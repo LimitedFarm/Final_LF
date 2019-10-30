@@ -23,7 +23,8 @@
 	.info{
 		border: 1px solid;
 		border-color: #ddd #ddd #CACACA;
-		width: 1000px;
+		width: 1200px;
+		min-width:1200px;
     	height: 360px;
     	margin-left:auto;
         margin-right:auto;
@@ -211,10 +212,6 @@
 				event.target.value = event.target.value.replace(/[^0-9]/g, "");
 		}
 	</script>
-
-
-
-
 
 </head>
 

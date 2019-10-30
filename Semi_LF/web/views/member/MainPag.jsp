@@ -9,7 +9,7 @@
 <style>
 .headbanner{
 	width:100%;
-	min-width:1100px;
+	min-width:1200px;
 	height:700px;
 	background:lightgray;
 	margin-top:110px;
@@ -24,7 +24,7 @@
 }
 #slideDiv{
 	display:inline-block;
-	min-width:900px;                                                                                                                                                 \
+	min-width:900px;
 	width:500px;
 	height:450px;
 	background:white;

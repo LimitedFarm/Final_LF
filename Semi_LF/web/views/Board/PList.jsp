@@ -390,7 +390,7 @@
 
 
 			</div>
-			<input type="hidden" name="sid" value="<%=sellerUser.getSid() %>">
+			<input type="text" name="sid" value="<%=sellerUser.getSid() %>">
 			<div id="sList4" style="margin-left: auto; margin-right: auto; margin-top: 20px; border: 0px solid; border-color: #ddd #ddd #CACACA;">
 				<div style="width: 600px; height: 100px; margin-left: 43%; margin-right: 43%; margin-top: 5%; border: 0px solid;">
 					<a href="javascript:void(0);" onclick="gogo();" class="button gray medium">상품 등록요청</a>

@@ -32,10 +32,8 @@ public class BoardDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int pId = 11;
 		
-		/* int pId = Integer.parseInt(request.getParameter("pId")); */
-		
+		int pId = Integer.parseInt(request.getParameter("pId"));
 		
 		BoardService bService = new BoardService();
 		Board board = bService.selectBoard(pId);

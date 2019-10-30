@@ -78,7 +78,7 @@ public class InsertBoardServlet extends HttpServlet {
 			String pDelivery = multiRequest.getParameter("pDelivery");
 			int cate = Integer.valueOf(multiRequest.getParameter("cates"));
 			int sid = Integer.valueOf(multiRequest.getParameter("sid"));
-			
+			System.out.println(sid);
 			Board b = new Board();
 			b.setpName(pName);
 			b.setpPrice(pPrice);
