@@ -24,7 +24,7 @@
 }
 #slideDiv{
 	display:inline-block;
-	min-width:900px;
+	min-width:900px;                                                                                                                                                 \
 	width:500px;
 	height:450px;
 	background:white;
