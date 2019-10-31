@@ -301,7 +301,7 @@
 
 
 <body>
-	
+      <div class="container">
       <%@ include file="menubar.jsp" %>
       
       <span class="infoText">${sessionScope.loginUser.userId }님의 주문내역입니다.</span>

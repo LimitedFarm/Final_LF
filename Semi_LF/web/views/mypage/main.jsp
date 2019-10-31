@@ -223,8 +223,10 @@
 </style>
 </head>
 <body>
-		<div class="container" >	
-		<%@ include file="./menubar.jsp" %>		
+
+		<div class="container">
+		<%@ include file="./menubar.jsp" %>
+			
 			<div class="nameArea">
 				<span>${customerVo.userId }</span>
 				<span><a href="${pageContext.request.contextPath }/myConfirm.bo">[ 회원정보수정 ]</a></span>

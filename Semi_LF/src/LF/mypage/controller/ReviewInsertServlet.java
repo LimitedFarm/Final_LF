@@ -41,11 +41,11 @@ public class ReviewInsertServlet extends HttpServlet {
 		
 		String type = request.getParameter("type") == null ? "" : request.getParameter("type");
 		
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		Customer loginInfo = (Customer) session.getAttribute("loginUser");
-		int cId = loginInfo.getCid();*/
+		int cId = loginInfo.getCid();
 		
-		int cId = 1;
+		/* int cId = 1; */
 		
 		ReviewVo vo = new ReviewVo();
 		

@@ -129,7 +129,7 @@
 </head>
 <body>
 	<!-- header역할을 하며 로그인, 회원가입, 메뉴바를 열수 있는 버튼을 생성 -->
-	<div class="navbar navbar-expand-sm bg-light navbar-dark fixed-top row" id="headerDiv" style="width:1500px; max-height:100px; z-index:1055; float:top;" >
+	<div class="navbar navbar-expand-sm bg-light navbar-dark fixed-top row" id="headerDiv" style="min-width:1200px; max-height:100px; z-index:1055; float:top;" >
 		<div class="headerNavi col-sm-1" align="left" >
 			<input id="menuBtn" type="button">
 		</div>
@@ -165,14 +165,12 @@
 		
 		<%} else if(loginUser.getGroupNum().equals("2")) {%>
 		
-		<a href="/Semi_LF/myMain.bo" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">account_circle</i></span>&nbsp;&nbsp;My Page</a>
+		<a href="/Semi_LF/views/seller/sellerMain.jsp" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">account_circle</i></span>&nbsp;&nbsp;My Page</a>
 		<%} else if(loginUser.getGroupNum().equals("3")){%>
 		<a href="<%=request.getContextPath() %>/cuInfo.ad?currentPage=1" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">account_circle</i></span>&nbsp;&nbsp;Admin Page</a>
 		<%}%>
 		<a href="/Semi_LF/list.po?cate=0" class="linkC"><span class="linkSpan"><i class="material-icons md-25">add_shopping_cart</i></span>&nbsp;&nbsp;상품 게시판</a>
-		<a href="#" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">shopping_basket</i></span>&nbsp;&nbsp;장바구니</a>
-		<a href="#" class="linkC"><span class="linkSpan"><i class="material-icons md-25">shopping_cart</i></span>&nbsp;&nbsp;HOME</a>
-		<a href="#" class="linkC"><span class="linkSpan"><i class="material-icons md-25">https</i></span>&nbsp;&nbsp;HOME</a>
+		<a href="/Semi_LF/myBasket.bo" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">shopping_basket</i></span>&nbsp;&nbsp;장바구니</a>
 		<a href="/Semi_LF/list.fo" class="linkC"><span class="linkSpan"><i class="material-icons md-25">question_answer</i></span>&nbsp;&nbsp;고객센터</a>
 	</div>
 	

@@ -37,11 +37,11 @@ public class ConfirmServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		Customer loginInfo = (Customer) session.getAttribute("loginUser");
-		int cId = loginInfo.getCid();*/
+		int cId = loginInfo.getCid();
 		
-		int cId = 1;
+		/* int cId = 1; */
 		
 		String email = new CustomerService().getCustomerEmail(cId);
 		

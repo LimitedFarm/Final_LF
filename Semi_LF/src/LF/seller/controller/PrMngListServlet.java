@@ -77,7 +77,7 @@ public class PrMngListServlet extends HttpServlet {
 				
 				RequestDispatcher view = null;
 				if(list !=null) {
-					view = request.getRequestDispatcher("views/seller/ProductMng.jsp");
+					view = request.getRequestDispatcher("/views/seller/ProductMng.jsp");
 					request.setAttribute("list", list);	// 현재 페이지에 화면에 뿌려질 게시글이 담긴 객체
 					request.setAttribute("lo", lo); // 페이지에 관련된 정보가 담긴 객체
 					request.setAttribute("paList", paList);

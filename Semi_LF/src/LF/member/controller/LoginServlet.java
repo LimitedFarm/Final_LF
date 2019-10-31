@@ -69,9 +69,6 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("adminUser", adInfo);
 		}
 		
-		
-		session.setMaxInactiveInterval(10);
-		
 		response.sendRedirect("views/member/MainPag.jsp");
 	}
 

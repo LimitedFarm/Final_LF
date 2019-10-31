@@ -88,7 +88,6 @@
 
 
 <body>
-	
 	<div class="container">
 		<%@ include file="menubar.jsp" %>
 		

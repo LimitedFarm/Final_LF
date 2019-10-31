@@ -99,7 +99,7 @@
 	    	var msg = name2 + '님의 결제가 완료되었습니다.\n';
 	        msg += '결제 금액 ' + rsp.paid_amount + "원";
 	        document.getElementById('submit').submit();
-	        opener.location.replace('test.jsp');
+	        opener.location.replace('/Semi_LF/myOrder.bo');
 	        window.close();
 			
 	    } else {

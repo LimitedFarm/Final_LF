@@ -16,7 +16,6 @@
 </head>
 <body>
 
-
 <div class="outer">
 	<h1>사업자 정보 변경</h1>
 	<form id="updateForm" action="<%=request.getContextPath() %>/sellerUpdate.selr" method="post">

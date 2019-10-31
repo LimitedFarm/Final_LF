@@ -1,3 +1,4 @@
+
 $(function() {
 	increaseNumber(); // 숫자 증가 시켜주기
 	

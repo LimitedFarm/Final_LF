@@ -50,7 +50,7 @@ public class BasketServlet extends HttpServlet {
 		
 		if(result>0) {
 			System.out.println("insert성공!");
-			request.getRequestDispatcher("views/Board/BasketSuccess.jsp").forward(request, response);
+			request.getRequestDispatcher("/myBasket.bo").forward(request, response);
 		}else {
 			request.setAttribute("msg", "게시판 작성 실패!!");
 			request.getRequestDispatcher("views/common/erropPage.jsp").forward(request, response);

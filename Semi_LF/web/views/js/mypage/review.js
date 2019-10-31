@@ -1,5 +1,5 @@
 $(function() {
-   $(".mypageMenu li:nth-child(4)").addClass("active");
+   $(".mypageMenu li:nth-child(5)").addClass("active");
    pageBtnEvent();
    reviewModal();
    alertFlag();

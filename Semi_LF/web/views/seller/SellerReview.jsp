@@ -31,7 +31,7 @@
 </head>
 <body>
 
-	<%@ include file="../mypage/menubar.jsp" %>
+	<%@ include file="../seller/sellerMain.jsp" %>
 	
 	<div class="outer">
 		<br>
@@ -156,42 +156,54 @@
 		 	sid = <%=lo.getSid()%>;
 			currentPage = <%=lo.getCurrentPage()%>;
 				
-		  $(window).scroll(function(){	//스크롤 이벤트 
-			if($(window).scrollTop() == $(document).height() - $(window).height()){	//스크롤바 바닥까지 내려가면 내용 추가 스크롤 위치 == 문서길이 - 화면 길이
-				currentPage++;
-				$.ajax({
-					url : "<%=request.getContextPath()%>/reviewRoad.selr",		/* PrMngRoad */
-					method:"post",
-					data: {sid : sid, currentPage : currentPage},
-					success: function(data){
-						console.log("clear");
-						for(var key in data){
-						//값 받아오는거는 for문 돌리든 해서 넣기.
-						var reId = data[key].reId;
-						var grade = data[key].grade
-						var sale_Id = data[key].saleId;
-						var review_Date = data[key].reviewModify;
-						var reContent = data[key].reContent;
-						$(".tableArea").append("<hr><table align='center' width='1000px' border='1px solid black' style='border-collapse:collapse'>"
-								+ "<tr><td colspan='3' width='60%' >리뷰번호 : " + reId + "</td><td colspan='1' width='30%'>별점 : " + grade + "</td></tr>"
-								+ "<tr><td width='45%'>주문번호 : " + sale_Id + "</td><td colspan='3' align='right'>리뷰 작성일 : " + review_Date + "</td></tr>"
-								+ "<tr><td colspan='4' width='90%'>" + reContent 
-								/* + "<br><div align='right'><button>신고하기</button></div>" */
-								+"</td></tr>"
-								+ "</table>");
-						}
-					} ,
-					error:function(){
-					},
-					complete : function(data) {
-		        }
-				}); 
-				
-				//추가해야 할 내용
-				//초기에 데이터 몇개나 불러올 것인지(되도록 스크롤바가 생길 수 있는 만큼의 값을 불러와야 함[대충 5개에서 10개 생각함])
-				//스크롤 끝까지 닿으면 새로운 데이터 n개 불러온다
-				//데이터가 더 이상 없으면 '데이터가 없음'을 알려줘야 한다 (+ 신규 판매 게시글 추가 버튼을 넣어서 신규 판매 게시글을 작성하는 링크 달아주기)
-			}
+			$(document).scroll(function(){   //스크롤 이벤트 
+		           var scrollHeight = $(document).height();
+		            var scrollPosition = $(window).height() + $(window).scrollTop();      
+
+		            $("#scrollHeight").text(scrollHeight);
+		            $("#scrollPosition").text(scrollPosition);
+		            $("#bottom").text(scrollHeight - scrollPosition);
+
+		            if (scrollPosition > scrollHeight - 500) {         
+		               currentPage++;
+		               $.ajax({
+		                  url : "<%=request.getContextPath()%>/reviewRoad.selr",      /* PrMngRoad */
+		                  method:"post",
+		                  data: {sid : sid, currentPage : currentPage},
+		                  success: function(data){
+		                     console.log("clear");
+		                     for(var key in data){
+		                     //값 받아오는거는 for문 돌리든 해서 넣기.
+		                     var reId = data[key].reId;
+		                     var grade = data[key].grade
+		                     var sale_Id = data[key].saleId;
+		                     var review_Date = data[key].reviewModify;
+		                     var reContent = data[key].reContent;
+		                     $(".tableArea").append("<hr><table align='center' width='1000px' border='1px solid black' style='border-collapse:collapse'>"
+		                           + "<tr><td colspan='3' width='60%' >리뷰번호 : " + reId + "</td><td colspan='1' width='30%'>별점 : " + grade + "</td></tr>"
+		                           + "<tr><td width='45%'>주문번호 : " + sale_Id + "</td><td colspan='3' align='right'>리뷰 작성일 : " + review_Date + "</td></tr>"
+		                           + "<tr><td colspan='4' width='90%'>" + reContent 
+		                           /* + "<br><div align='right'><button>신고하기</button></div>" */
+		                           +"</td></tr>"
+		                           + "</table>");
+		                     }
+		                  } ,
+		                  error:function(){
+		                  },
+		                  complete : function(data) {
+		                 }
+		               }); 
+		               
+		            }
+		         /* if($(window).scrollTop() == $(document).height() - $(window).height()){   //스크롤바 바닥까지 내려가면 내용 추가 스크롤 위치 == 문서길이 - 화면 길이
+		            
+		            
+		            //추가해야 할 내용
+		            //초기에 데이터 몇개나 불러올 것인지(되도록 스크롤바가 생길 수 있는 만큼의 값을 불러와야 함[대충 5개에서 10개 생각함])
+		            //스크롤 끝까지 닿으면 새로운 데이터 n개 불러온다
+		            //데이터가 더 이상 없으면 '데이터가 없음'을 알려줘야 한다 (+ 신규 판매 게시글 추가 버튼을 넣어서 신규 판매 게시글을 작성하는 링크 달아주기)
+		         }
+		        */
 		 
 		 });
 	 });

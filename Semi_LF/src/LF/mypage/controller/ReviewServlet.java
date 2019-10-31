@@ -35,11 +35,11 @@ public class ReviewServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		Customer loginInfo = (Customer) session.getAttribute("loginUser");
-		int cId = loginInfo.getCid();*/
+		int cId = loginInfo.getCid();
 		
-		int cId = 1;
+		/* int cId = 1; */
 		
 		ReviewService rService = new ReviewService();
 		

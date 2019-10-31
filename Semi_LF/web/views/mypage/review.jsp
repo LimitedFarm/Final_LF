@@ -245,7 +245,7 @@
 </style>
 </head>
 <body>
-	
+   <div class="container">
    <%@ include file="menubar.jsp" %>
       
       <div class="reviewTitle">${sessionScope.loginUser.userId }님의 리뷰목록입니다.</div>

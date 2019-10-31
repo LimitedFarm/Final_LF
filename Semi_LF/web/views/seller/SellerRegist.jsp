@@ -44,7 +44,7 @@
 	 
    --%>
    
-   <%@ include file="../mypage/menubar.jsp" %>
+   <%@ include file="../common/menubar.jsp" %>
 	
 	<div class="outer">
 	<h1 id="subject">판매자 회원 신청</h1>

@@ -1,5 +1,5 @@
 $(function() {
-	$(".mypageMenu li:nth-child(3)").addClass("active");
+	$(".mypageMenu li:nth-child(4)").addClass("active");
 	
 	checkboxEvent();
 	

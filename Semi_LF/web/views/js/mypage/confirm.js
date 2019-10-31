@@ -4,7 +4,7 @@ $(function() {
 
 function buttonEvent() {
 	
-	$(".mypageMenu li:nth-child(1)").addClass("active");
+	$(".mypageMenu li:nth-child(2)").addClass("active");
 	
 	$(".sendConfirmMail").on("click", function() {
 		

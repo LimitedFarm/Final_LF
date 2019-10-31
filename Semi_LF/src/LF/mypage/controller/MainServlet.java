@@ -39,12 +39,13 @@ public class MainServlet extends HttpServlet {
 		
 		
 		// 회원번호 세션에서 받아오기
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		Customer loginInfo = (Customer) session.getAttribute("loginUser");
-		int cId = loginInfo.getCid();*/
+		int cId = loginInfo.getCid();
 		
-		int cId = 1;
-		
+		/*
+		 * int cId = 1;
+		 */
 		String flag = request.getParameter("flag");
 		
 		request.setAttribute("flag", flag);

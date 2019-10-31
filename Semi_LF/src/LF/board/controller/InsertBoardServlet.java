@@ -117,7 +117,7 @@ public class InsertBoardServlet extends HttpServlet {
 			int result = new BoardService().insertThumbnail(b, fileList);
 			
 			if(result > 0) {
-				System.out.println("등록 성공!");
+				request.getRequestDispatcher("/myOrder.bo").forward(request, response);;
 			}else {
 				//실패시 저장된 사진 삭제
 				for(int i =0; i<saveFiles.size(); i++) {

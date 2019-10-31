@@ -41,11 +41,11 @@ public class OrderServlet extends HttpServlet {
 		int currentPage = request.getParameter("currentPage") == null ? 1
 				: new Integer(request.getParameter("currentPage"));
 
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		Customer loginInfo = (Customer) session.getAttribute("loginUser");
-		int cId = loginInfo.getCid();*/
+		int cId = loginInfo.getCid();
 		
-		int cId = 1;
+		/* int cId = 1; */
 
 		OrderService oService = new OrderService();
 

@@ -178,27 +178,27 @@ html {
 	font-family: "Nanum Gothic", sans-serif !important;
 }
 </style>
-<div style="display:none"><%@ include file = "../common/menubar.jsp" %></div>
 <h2 class="mpTitle"><span>MY PAGE</span></h2>
 
-<ul class="mypageMenu">
-	
+<ul class="mypageMenu">   
+	<li><a href="views/member/MainPag.jsp">메인 페이지</a></li>
 	<li><a href="${pageContext.request.contextPath}/myConfirm.bo">정보수정</a></li>
 	<li><a href="${pageContext.request.contextPath}/myOrder.bo">주문/배송</a></li>
 	<li><a href="${pageContext.request.contextPath}/myBasket.bo">장바구니</a></li>
 	<li><a href="${pageContext.request.contextPath}/myReview.bo">나의 리뷰</a></li>
+	<li><a href="${pageContext.request.contextPath}/views/seller/SellerRegist.jsp">판매자 등록</a></li>
 	<%-- <li><a href="${pageContext.request.contextPath}/myQna.bo">문의 내역</a></li> --%>
 	
 	
 	<!-- 여기 에러나면 주석해서 테스트 -->
-	<%if(loginUser.getGroupNum().equals("1")) {%> 
+	<%-- <%if(loginUser.getGroupNum().equals("1")) {%> 
 		<li><a href="<%=request.getContextPath() %>/views/seller/SellerRegist.jsp">판매자 등록</a></li>
 	<%}else if(loginUser.getGroupNum().equals("2")) {%>	
 			<li><a href="<%=request.getContextPath() %>/sellerInfoMng.selr?fid=<%=sellerUser.getFid()%>"><span>판매자 정보 관리</span></a></li>
 			<li><a href="<%=request.getContextPath() %>/productMngList.prod?sid=<%=sellerUser.getSid()%>"><span>판매 상품 관리</span></a></li> <!-- PrMngListServlet -->
 			<li><a href="<%=request.getContextPath() %>/reviewList.selr?sid=<%=sellerUser.getSid()%>"><span>상품 리뷰 확인</span></a></li>
 			<li><a href="<%=request.getContextPath() %>/sReport.selr?sid=<%=sellerUser.getSid()%>"><span>주문 및 매출 관리</span></a></li>
-		<%} %>
+		<%} %> --%>
 	<!-- 여기까지 추가함 -->
 	
 </ul>  

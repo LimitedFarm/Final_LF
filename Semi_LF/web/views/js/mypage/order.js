@@ -1,5 +1,5 @@
 $(function() {
-   $(".mypageMenu li:nth-child(2)").addClass("active");
+   $(".mypageMenu li:nth-child(3)").addClass("active");
 
    pageBtnEvent();
 

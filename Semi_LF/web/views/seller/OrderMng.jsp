@@ -91,7 +91,7 @@
 <body>
 
 
-	<%@ include file="../mypage/menubar.jsp" %>
+	<%@ include file="../seller/sellerMain.jsp" %>
 	
 	<div class="outer">
 		<br>
