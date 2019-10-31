@@ -153,7 +153,7 @@ public class BoardDao {
 						rs.getString("pText5"),
 						rs.getString("pNotice"),
 						rs.getString("pDelivery"),
-						rs.getDate("cRearedate"),
+						rs.getDate("CREAREDATE"),
 						rs.getDate("pModifydate"),
 						rs.getString("status"),
 						rs.getInt("cAteid"));

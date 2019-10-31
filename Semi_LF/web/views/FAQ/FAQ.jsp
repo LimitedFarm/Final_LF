@@ -3,7 +3,7 @@
 
 <%
 	ArrayList<Faq> flist = (ArrayList<Faq>)request.getAttribute("flist");
-	%>
+%>
 <!DOCTYPE html>
 
 <html>

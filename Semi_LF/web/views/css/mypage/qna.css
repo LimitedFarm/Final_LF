@@ -1,0 +1,104 @@
+.container {
+	border: 1px solid black;
+	width: 1280px;
+	min-width: 1280px;
+	margin:0 auto;
+	min-height: 800px;
+	padding-bottom: 100px;
+}
+
+.qnaTable{
+	border: 1px solid black;
+    position: relative;
+    top: 70px;
+    left: 40px;
+    width: 840px;
+    height: 470px;
+}
+
+.qnaTitle{
+	border-bottom: 1px solid black;
+}
+
+.qnaText{
+	border-bottom: 1px solid black;
+}
+
+.qnaTopic{
+	border-bottom: 1px solid black;
+	vertical-align: middle;
+    text-align: center;
+    height: 90px;
+    width: 100px;
+    border-right: 1px solid black;
+    
+}
+
+.qnatype{
+	border-right: 1px solid black;
+	vertical-align: middle;
+    text-align: center;
+}
+
+.text{
+    position: relative;
+    left: 40px;
+    top: 50px;
+    width: 250px;
+    height: 30px;
+}
+
+.typeBtn{
+	position: relative;
+    left: 50px;
+    top: 50px;
+    background: #3333e8;
+    height: 37px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.listType{
+	position: relative;
+    top: 110px;
+    right: 290px;
+    height: 50px;
+    width: 255px;
+}
+
+.submitBtn{
+	position: relative;
+    top: 400px;
+    width: 100px;
+    height: 50px;
+    background: #3333e8;
+    cursor: pointer;
+    color: white;
+    border: none;
+    right: 80px;
+}
+
+.deleteBtn{
+	position: relative;
+    top: 350px;
+    width: 100px;
+    height: 50px;
+    background: #3333e8;
+    cursor: pointer;
+    color: white;
+    border: none;
+    left: 637px;
+}
+
+.qnaName{
+	width: 737px;
+    height: 90px;
+    border: none;
+}
+
+
+
+
+
+

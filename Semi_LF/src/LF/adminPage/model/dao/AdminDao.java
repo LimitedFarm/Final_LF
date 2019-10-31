@@ -493,10 +493,10 @@ public class AdminDao {
 				AdPList sinfo = new AdPList(rs.getInt("pid"),
 						rs.getString("userName"),
 						rs.getString("userId"),
-						rs.getString("pAddress"),
 						rs.getString("bName"),
 						rs.getString("pName"),
-						rs.getInt("bCount"),
+						rs.getString("pAddress"),
+						rs.getInt("PCount"),
 						rs.getInt("pPrice"),
 						rs.getString("pDay"),
 						rs.getInt("cateId"),
@@ -662,7 +662,7 @@ public class AdminDao {
 									rs.getInt("pPrice"),
 									rs.getString("pday"),
 									rs.getString("PPERIOD"),
-									rs.getDate("createdate"),
+									rs.getDate("CREAREDATE"),
 									rs.getString("status"));
 				
 				pList.add(p);
@@ -738,8 +738,8 @@ public class AdminDao {
 			pstmt.setInt(1, sid);
 			
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				result = rs.getInt(1);
+			while(rs.next()) {
+				result += rs.getInt(1);
 			}
 			
 		} catch (SQLException e) {
@@ -759,13 +759,13 @@ public class AdminDao {
 		ResultSet rs = null;
 		int result = 0;
 		String query = prop.getProperty("pAllInventory");
-		
+		System.out.println(sid);
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, sid);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				result =rs.getInt(1);
+			while(rs.next()) {
+				result +=rs.getInt(1);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

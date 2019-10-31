@@ -1,17 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, LF.adminPage.model.vo.PList, LF.adminPage.model.vo.SInfo"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, LF.adminPage.model.vo.PList, LF.adminPage.model.vo.SInfo, LF.adminPage.model.vo.PageInfo"%>
 <%
 	SInfo s = (SInfo)request.getAttribute("sinfo");
 	ArrayList<PList> pList = (ArrayList<PList>)request.getAttribute("pListInfo");
-	int currentPage = 1;
+
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+
+	int listCount = pi.getListCount();
+	int currentPage = pi.getCurrentPage();
+	int maxPage = pi.getMaxPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
 %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
@@ -125,7 +132,7 @@
 			<!-- 판매 물품 정보 -->
 			<div class="card proTableDiv">
 			<div class="card-header bg-primary text-white">등록 물품</div>
-				<div class="card-body">
+				<div class="card-body" style="overflow:auto">
 					<table class="table table-bordered" id="dataTable" cellspacing="0">
 					    <thead>
 					        <tr>
@@ -137,12 +144,39 @@
 								<th>등록날짜</th>
 								<th>판매유무</th>
 							</tr>
-        					
 					    </thead>
 					    <tbody id="pListCol">
 					    
 					    </tbody>
 					</table>
+					<div>
+						<ul class="pagination" style="float:right;">
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/sinfo.ad?currentPage=1">FirstPage</a></li>
+						
+						<!-- 이전 페이지로 -->
+						<% if (currentPage <= 1) { %>
+							<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+						<% } else { %>
+							<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/sinfo.ad?currentPage=<%=currentPage - 1%>">Previous</a></li>
+						<%} %>
+						<!-- 5개의 페이지 목록 -->
+						<% for (int p = startPage; p <= endPage; p++) { %>
+							<% if (p == currentPage) { %>
+								<li class="page-item"><a class="page-link" href="#"><%=p%></a></li>
+							<%} else { %>
+								<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/sinfo.ad?currentPage=<%=p%>"><%=p%></a></li>
+							<%}%>
+						<%} %>
+						<!-- 다음 페이지로(>) -->
+						<% if (currentPage >= maxPage) { %>
+							<li class="page-item"><a class="page-link" href="#">Next</a></li>
+						<% } else { %>
+							<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/sinfo.ad?currentPage=<%=currentPage + 1%>">Next</a></li>
+						<% } %>	
+						<!-- 처음으로 -->
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/sinfo.ad?currentPage=<%=maxPage%>">LastPage</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 			
@@ -152,27 +186,46 @@
 	
 	
 	<script>
-		// 마지막에
-		$(function(){
-			timerCol = setInterval(function(){
-				var pListCol = $("#pListCol");
-				pListCol.html("");
-				$.ajax({
-					url:"/Semi_LF/searchPListCol.ad",
-					type:"post",
-					data: {sid : <%=s.getSid()%>, currentPage : <%=currentPage%>},
-					success: function(data){
-								
+		
+		 function tableBody(current){
+			$.ajax({
+				url:"/Semi_LF/proCol.ad",
+				type:"post",
+				data: {sid : <%=s.getSid()%>, currentPage : current},
+				success: function(data){
+					var $pListCol = $("#pListCol");
+					$pListCol.html("");
+					for(var key in data){
+						var $tr = $("<tr>");
+						var $hid = $("<input>").attr({"value":data[key].pId,"type":"hidden"});
+						var $pidTd = $("<td>").text(data[key].pId);
+						var $pNameTd = $("<td>").text(data[key].pName);
+						var $pDayTd = $("<td>").text(data[key].pPrice);
+						var $makTd = $("<td>").text(data[key].pDay);
+						var $pPreTd = $("<td>").text(data[key].pPeriod);
+						var $creTd = $("<td>").text(data[key].createDate);
+						var $staTd = $("<td>").text(data[key].status);
+						
+						$tr.append($hid);
+						$tr.append($pidTd);
+						$tr.append($pNameTd);
+						$tr.append($pDayTd);
+						$tr.append($makTd);
+						$tr.append($pPreTd);
+						$tr.append($creTd);
+						$tr.append($staTd);
+						$pListCol.append($tr);
 					}
-				});
-			}, 5000);
-		});
+				}
+			});
+		}
 	</script>
 	<script type="text/javascript">
 	// 차트 정보 입력
 		$(function() {
-
-			var LFChart = $('#chart1');
+			
+			/* var LFChart = $('#chart1');
+			LFChart.html("");
 			var myPieChart = new Chart(LFChart, {
 
 				type: 'pie',
@@ -212,9 +265,13 @@
 						}
 					}
 				}
-			});
-
+			}); */
+			
+			chartpDate(0, <%=s.getSid()%>);
+			tableBody(1);
+			
 		});
+		
 		// 판매자 물품 테이블
 		function ProductTData(){
 			var $tBody = $("#pListCol");
@@ -222,62 +279,45 @@
 			$.ajax({
 				url:"/Semi_LF/proCol.ad",
 				type:"post",
-				data:{ "sid" : <%=s.getSid() %>},
+				data:{ "sid" : <%=s.getSid() %>, currentPage: <%=currentPage%>},
 				success:function(data){
-					/* for(var key in data){
-						if(key == "col"){
-							for(var i=0; i<data[key].size(); i++){
-								var $tr = $("<tr>").text(data[key][i]);
-								var $hid = $("<input>"));
-								var $pidTd = $("<td>");
-								var $pNameTd = $("<td>");
-								var $pDayTd = $("<td>");
-								var $makTd = $("<td>");
-								var $pPreTd = $("<td>");
-								var $creTd = $("<td>");
-								var $staTd = $("<td>");
-								
-								$tr.append($hid);
-								$tr.append($pidTd);
-								$tr.append($pNameTd);
-								$tr.append($pDayTd);
-								$tr.append($makTd);
-								$tr.append($pPreTd);
-								$tr.append($creTd);
-								$tr.append($staTd);
-								$tBody.append($tr);
-							}
-						}else if(key == 'page'){
-							var $div=$("<div>");
-							var $ul=$("<ul>").addClass("pagination").attr("float","right");
-							var $nextLi = $("<li>");
-							var $nextA = $("<a>");
-							var $prevLi = $("<li>");
-							var $prevA = $("<a>");
-							
-						</div>
-						}else{
-							alert('뭐지?');
-						}
-					} */
-				}
+					for(var key in data){
+						var $tr = $("<tr>").text(data[key][i]);
+						var $hid = $("<input>").attr({"value":data[key].get(i).sid,"type":"text"});
+						var $pidTd = $("<td>");
+						var $pNameTd = $("<td>");
+						var $pDayTd = $("<td>");
+						var $makTd = $("<td>");
+						var $pPreTd = $("<td>");
+						var $creTd = $("<td>");
+						var $staTd = $("<td>");
+						
+						$tr.append($hid);
+						$tr.append($pidTd);
+						$tr.append($pNameTd);
+						$tr.append($pDayTd);
+						$tr.append($makTd);
+						$tr.append($pPreTd);
+						$tr.append($creTd);
+						$tr.append($staTd);
+						$tBody.append($tr);
+					}
+				} 
 			});
 		}
+		
 		// 판매자 거래률 차트
 		function chartPDraw(sale, count){
 			var ctx = $('#chart1');
 			var myPieChart = new Chart(ctx, {
-
 				type: 'pie',
 				data : {
 					datasets : [ {
 						data : [ count, sale ],
 						backgroundColor : [
+							'rgba(244, 7, 7, 1)',
 
-						'rgba(190, 190, 190, 1)',
-
-						'rgba(241, 196, 15, 1)',
-
+							'rgba(46, 204, 113, 1)'
 						],
 
 					} ],
@@ -313,9 +353,9 @@
 			$.ajax({
 				url:"/Semi_LF/chartpData.ad",
 				type:"post",
-				data:{"pid": pid, "sid" : sid},
+				data:{"pid": pid, "sid" : <%=s.getSid()%>},
 				success:function(data){
-					/* chartPDraw(pcount, sale); */
+					chartPDraw(data.sale, data.pCount);
 				}
 			});
 		}

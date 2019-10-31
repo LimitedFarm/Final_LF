@@ -42,7 +42,7 @@ public class SellerInfoMng extends HttpServlet {
 			
 		RequestDispatcher view = null;
 		if(image != null) {
-			view = request.getRequestDispatcher("views/seller/SellerInfo.jsp");
+			view = request.getRequestDispatcher("/views/seller/SellerInfo.jsp");
 			request.setAttribute("image",  image);
 			view.forward(request, response);
 		}else {

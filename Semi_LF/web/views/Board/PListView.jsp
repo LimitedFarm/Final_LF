@@ -24,8 +24,7 @@
 	   
 		border: 1px solid;
 		border-color: #ddd #ddd #CACACA;
-		width: 1200px;
-		min-width:1200px;
+		width: 935px;
     	height: 461px;
     	margin-left:auto;
         margin-right:auto;

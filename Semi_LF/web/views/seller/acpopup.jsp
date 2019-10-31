@@ -92,8 +92,6 @@
 			
 			//은행 선택 여부
 			var bankName = $("#updateForm select[name='bName']").val();
-			alert("bName : " + bankName);
-			console.log(bankName);
 			
 			if(bankName == ""){
 				return false;

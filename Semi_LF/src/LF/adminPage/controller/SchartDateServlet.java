@@ -42,16 +42,14 @@ public class SchartDateServlet extends HttpServlet {
 		
 		// 남은 재고량
 		int pcount = 0;
-		
-		if(sid >= 1) {	
+		System.out.println(sid);
+		if(pid >= 1) {	
 			sale = ad.pChartDate(pid);
 			pcount = ad.pInventory(pid);
 		}else { // 상품 하나의 값
 			sale = ad.pChartAllDate(sid);
 			pcount = ad.pAllInventory(sid);
 		}
-		
-		int[] reulst = {sale, pcount};
 		
 		ChartPData cp = new ChartPData(sale, pcount);
 		response.setContentType("application/json;");

@@ -23,8 +23,7 @@
 	.info{
 		border: 1px solid;
 		border-color: #ddd #ddd #CACACA;
-		width: 1200px;
-		min-width:1200px;
+		width: 1000px;
     	height: 360px;
     	margin-left:auto;
         margin-right:auto;

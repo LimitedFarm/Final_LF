@@ -2,8 +2,8 @@ package LF.adminPage.model.vo;
 
 import java.io.Serializable;
 
-public class AdPList implements Serializable{
-	
+public class AdPList implements Serializable {
+
 	/**
 	 * 
 	 */
@@ -14,15 +14,16 @@ public class AdPList implements Serializable{
 	private String bName;
 	private String pName;
 	private String pAddress;
-	private int bCount;
+	private int pCount;
 	private int pPrice;
 	private String pDay;
 	private int cateId;
 	private String status;
-	
-	public AdPList() {}
 
-	public AdPList(int pId, String uesrName, String userId, String bName, String pName, String pAddress, int bCount,
+	public AdPList() {
+	}
+
+	public AdPList(int pId, String uesrName, String userId, String bName, String pName, String pAddress, int pCount,
 			int pPrice, String pDay, int cateId, String status) {
 		this.pId = pId;
 		this.uesrName = uesrName;
@@ -30,7 +31,7 @@ public class AdPList implements Serializable{
 		this.bName = bName;
 		this.pName = pName;
 		this.pAddress = pAddress;
-		this.bCount = bCount;
+		this.pCount = pCount;
 		this.pPrice = pPrice;
 		this.pDay = pDay;
 		this.cateId = cateId;
@@ -85,12 +86,12 @@ public class AdPList implements Serializable{
 		this.pAddress = pAddress;
 	}
 
-	public int getbCount() {
-		return bCount;
+	public int getpCount() {
+		return pCount;
 	}
 
-	public void setbCount(int bCount) {
-		this.bCount = bCount;
+	public void setpCount(int pCount) {
+		this.pCount = pCount;
 	}
 
 	public int getpPrice() {
@@ -132,11 +133,8 @@ public class AdPList implements Serializable{
 	@Override
 	public String toString() {
 		return "AdPList [pId=" + pId + ", uesrName=" + uesrName + ", userId=" + userId + ", bName=" + bName + ", pName="
-				+ pName + ", pAddress=" + pAddress + ", bCount=" + bCount + ", pPrice=" + pPrice + ", pDay=" + pDay
+				+ pName + ", pAddress=" + pAddress + ", pCount=" + pCount + ", pPrice=" + pPrice + ", pDay=" + pDay
 				+ ", cateId=" + cateId + ", status=" + status + "]";
 	}
-	
-	
-	
-	
+
 }

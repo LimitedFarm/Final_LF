@@ -65,34 +65,6 @@
 		height: 75px;
 		width : 75px;
 	}
-	<%-- #loginBtn{
-		background:url('<%=request.getContextPath()%>/images/login.png') no-repeat;
-		background-size: cover; 
-		background-repeat: no-repeat; 
-		background-position: center;
-		border: 0px;
-		height: 75px;
-		width : 100px;
-	}
-	
-	#signUpBtn{
-		background:url('<%=request.getContextPath()%>/images/signup2.png') no-repeat;
-		background-size: cover; 
-		background-position: center;
-		
-		border: 0px;
-		height: 75px;
-		width : 100px;
-	}
-	#logoutBtn{
-		background:url('<%=request.getContextPath()%>/images/login.png') no-repeat;
-		background-size: cover; 
-		background-position: center;
-		
-		border: 0px;
-		height: 75px;
-		width : 100px;
-	} --%>
 	#inlineUl li{
 		display:inline;
 	}
@@ -146,11 +118,18 @@
 	.modal-body td{
 		text-align:left;
 	}
+	.btnSize{
+		align:right; 
+		max-width:120px; 
+		max-height:42px;
+		min-width:120px;
+		min-height:42px;
+	}
 </style>
 </head>
 <body>
 	<!-- header역할을 하며 로그인, 회원가입, 메뉴바를 열수 있는 버튼을 생성 -->
-	<div class="navbar navbar-expand-sm bg-light navbar-dark fixed-top row" id="headerDiv" style="min-width: 1200px; max-height:100px; z-index:1055; float:top;" >
+	<div class="navbar navbar-expand-sm bg-light navbar-dark fixed-top row" id="headerDiv" style="width:1500px; max-height:100px; z-index:1055; float:top;" >
 		<div class="headerNavi col-sm-1" align="left" >
 			<input id="menuBtn" type="button">
 		</div>
@@ -160,13 +139,13 @@
 		<div class="headerNavi col-sm-3" id="rightMenu" style="min-width:500px;">
 			<% if(loginUser == null) {%>
 				<ul id="inlineUl">
-					<li><button id="loginBtn" class="genric-btn info circle" type="button" style="align:right; max-width:200px; max-height:50px;" data-toggle="modal" data-target="#loginModal">로그인</button></li>
-					<li><button id="signUpBtn" class="genric-btn info circle" type="button" style="align:right; max-width:200px; max-height:50px;" data-toggle="modal" data-target="#signupModal">회원가입</button></li>
+					<li><button id="loginBtn" class="genric-btn info circle btnSize" type="button"  data-toggle="modal" data-target="#loginModal">로그인</button></li>
+					<li><button id="signUpBtn" class="genric-btn info circle btnSize" type="button" data-toggle="modal" data-target="#signupModal">회원가입</button></li>
 				</ul>
 			<%} else { %>
 				<ul id="inlineUl">
 					<li style="display:inline-block; vertical-align:middle"><%=loginUser.getUserName() %>님 환영합니다.</li>
-					<li><button id="logoutBtn" class="genric-btn info circle" type="button" style="align:right; max-width:200px; max-height:50px;">로그아웃</button></li>
+					<li><button id="logoutBtn" class="genric-btn info circle btnSize" type="button">로그아웃</button></li>
 				</ul>
 			<%} %>
 		</div>
@@ -177,11 +156,16 @@
 	<div id="menu">
 		<a href="<%=request.getContextPath() %>/views/member/MainPag.jsp" class="linkC"><span class="linkSpan"><i class="material-icons md-25">home</i></span>&nbsp;&nbsp;Home</a>
 		<% if(loginUser == null) {%>
+		
 		<a href="#loginBtn" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">account_circle</i></span>&nbsp;&nbsp;My Page</a>
+		
 		<%} else if(loginUser.getGroupNum().equals("1")) {%>
-		<a href="#" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">account_circle</i></span>&nbsp;&nbsp;My Page</a>
+		
+		<a href="/Semi_LF/myMain.bo" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">account_circle</i></span>&nbsp;&nbsp;My Page</a>
+		
 		<%} else if(loginUser.getGroupNum().equals("2")) {%>
-		<a href="#" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">account_circle</i></span>&nbsp;&nbsp;My Page</a>
+		
+		<a href="/Semi_LF/myMain.bo" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">account_circle</i></span>&nbsp;&nbsp;My Page</a>
 		<%} else if(loginUser.getGroupNum().equals("3")){%>
 		<a href="<%=request.getContextPath() %>/cuInfo.ad?currentPage=1" class="linkC aline"><span class="linkSpan"><i class="material-icons md-25">account_circle</i></span>&nbsp;&nbsp;Admin Page</a>
 		<%}%>

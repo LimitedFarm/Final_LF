@@ -130,7 +130,6 @@
 	
 	//사업자 등록번호 체크
 	function check(){
-		alert("button click");
 		
 		//사업자 등록번호 체크
 		var bNum = $("#joinForm input[name='bNum']").val();

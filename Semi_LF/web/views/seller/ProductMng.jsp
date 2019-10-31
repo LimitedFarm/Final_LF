@@ -21,7 +21,7 @@
    	pading-top:50px;
    	top: 150px;
    	left: 220px;
-    width: 1280;
+    width: 1280px;
     min-width: 1280px;
     min-height: 800px;
     display: inline-block; 
@@ -104,7 +104,7 @@
 					var pPeriod = "<%=p.getpPeriod()%>";
 					var pContent = "<%=p.getpText1()%>";
 					
-					$(".tableArea").append("<hr><table id='productTable' align='center' width='90%' border='1px solid black' style='border-collapse:collapse'>"
+					$(".tableArea").append("<hr><table id='productTable' align='center' width='1000px' border='1px solid black' style='border-collapse:collapse'>"
 							+ "<tr><td rowspan='5' width='20%' height='30%'>" 
 							+ "<div align='center' border='1px solid black'><img id='prodImg' src='<%=request.getContextPath() %>/uploadFiles/<%=paList.get(cnt).getChangeName()%>' width='300px' height='300px'></div></td>"
 							+ "<td rowspan='1' width='65%'>상품명 : " + pName + "</td>"
@@ -209,7 +209,7 @@
 						
 						for(var i=0; i<5;i++){
 							console.log(fileName[i]);
-						$(".tableArea").append("<hr><table id='productTable' align='center' width='90%' border='1px solid black' style='border-collapse:collapse'>"
+						$(".tableArea").append("<hr><table id='productTable' align='center' width='1000px' border='1px solid black' style='border-collapse:collapse'>"
 								+ "<tr><td rowspan='5' width='20%' height='30%'>" 
 								+ "<div align='center' border='1px solid black'><img id='prodImg'  src='<%=request.getContextPath() %>/uploadFiles/" +fileName[i] +"' width='300px' height='300px'></div></td>"
 								+ "<td rowspan='1' width='65%'>상품명 : " + pName[i] + "</td>"

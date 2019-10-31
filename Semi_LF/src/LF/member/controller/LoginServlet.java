@@ -45,7 +45,6 @@ public class LoginServlet extends HttpServlet {
 		System.out.println(loginInfo);
 		HttpSession session = request.getSession();;
 		if(loginInfo.getCid() == 0) {
-			request.getSession().invalidate();
 			PrintWriter writer = response.getWriter();
 			writer.println("<script>alert('아이디 및 비밀번호를 확인해주세요.'); location.href='views/member/MainPag.jsp';</script>");
 			writer.flush();

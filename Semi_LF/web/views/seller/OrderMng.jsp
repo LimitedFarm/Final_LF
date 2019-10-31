@@ -164,7 +164,7 @@
 		</div>
 		<div class="pagingArea" align="center">
 			<!-- 맨 처음으로(<<) -->
-			<button onclick="location.href='<%=request.getContextPath() %>/sReport.selr?currentPage=1&sid=<%=sellerUser.getSid()%>'"> </button>
+			<button onclick="location.href='<%=request.getContextPath() %>/sReport.selr?currentPage=1&sid=<%=sellerUser.getSid()%>'"> << </button>
 			
 			<!-- 이전 페이지로(<) -->
 			<%if(currentPage <= 1) {%>

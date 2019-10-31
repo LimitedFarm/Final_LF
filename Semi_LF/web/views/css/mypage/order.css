@@ -1,0 +1,268 @@
+.container {
+	border: 1px solid black;
+	width: 1280px;
+	min-width: 1280px;
+	margin: 0 auto;
+	min-height: 800px;
+	padding-bottom: 100px;
+}
+
+.infoText {
+	position: relative;
+	left: 40px;
+}
+
+.listType {
+	position: relative;
+	left: 584px;
+	width: 120px;
+	height: 30px;
+}
+
+.orderTable {
+	width: 915px;
+	border-top: 1px solid #ada9a9;
+	text-align: center;
+	margin-left: 80px;
+	display: inline-table;
+}
+
+.orderTable th:nth-child(1) {
+	width: 45%;
+}
+
+.orderTable th:nth-child(2) {
+	width: 11%;
+}
+
+.orderTable th:nth-child(3) {
+	width: 11%;
+}
+
+.orderTable th:nth-child(4) {
+	width: 11%;
+}
+
+.orderTable th:nth-child(5) {
+	width: 11%;
+}
+
+.orderTable th:nth-child(6) {
+	width: 11%;
+}
+
+.orderTable .listHeader {
+	height: 40px;
+	line-height: 40px;
+	background: #eaeaea;
+}
+
+.orderTable .listNumberArea {
+	height: 28px;
+	line-height: 28px;
+	font-size: 13px;
+}
+
+.orderTable .listNumberArea td {
+	text-align: left;
+}
+
+.orderTable .listContentArea {
+	height: 100px;
+	line-height: 100px;
+}
+
+.orderTable .listContentArea td:nth-child(1) {
+	text-align: left;
+}
+
+.orderTable .listContentArea td:nth-child(6) {
+	line-height: normal;
+}
+
+.orderTable .listContentArea td:nth-child(6) div {
+	vertical-align: middle;
+	display: -webkit-inline-box;
+}
+
+.orderTable .listContentArea img {
+	width: 70px;
+	height: 70px;
+	vertical-align: middle;
+	margin-left: 20px;
+	margin-right: 10px;
+}
+
+.orderTable .listBtnArea {
+	height: 40px;
+	line-height: 40px;
+}
+
+.orderTable .listBtnArea .orderNum {
+	margin-left: 20px;
+	font-size: 13px;
+	color: #525252;
+}
+
+.orderTable .listBtnArea .price {
+	margin-right: 20px;
+	font-weight: bold;
+}
+
+.orderTable .listBtnArea td {
+	border-top: 1px solid #b7b7b7;
+}
+
+.orderTable .listBtnArea td:nth-child(1) {
+	text-align: left;
+	border-bottom: 1px solid #969494;
+}
+
+.orderTable .listBtnArea td:nth-child(2) {
+	text-align: right;
+	border-bottom: 1px solid #969494;
+}
+
+.orderTable .btn {
+	color: white;
+	border: none;
+	cursor: pointer;
+	padding: 3px 10px;
+	margin: 3px;
+}
+
+.orderTable .btn:nth-child(1) {
+	background: #5555b9;
+}
+
+.orderTable .btn:nth-child(2) {
+	background: green;
+}
+
+.orderTable .btn:nth-child(3) {
+	background: red;
+}
+
+.pagingArea {
+	width: 450px;
+	height: 70px;
+	margin-left: 510px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.pageNum {
+	border: 1px solid #d8d8d8;
+	background: #fff;
+	width: 40px;
+	height: 40px;
+	font-weight: bold;
+	cursor: pointer;
+	outline: none;
+}
+
+.selPageNum {
+	box-shadow: 0px 0px 2px 1px #5E9ED6;
+}
+
+
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+   	width: 700px;
+    height: 270px;
+    display: block;
+}
+
+.modalTitleArea {
+	display: block;
+}
+
+.modal-pname {
+	min-width: 300px;
+	height: 30px;
+	display: inline-block;
+}
+
+.starArea {
+	width: 200px;
+	height: 30px;
+	margin-left: 20px;
+	display: inline-block;
+	float: right;
+	text-align: right;
+}
+
+.starPoint {
+	background-image: url(../../images/star_empty.png);
+	background-repeat: no-repeat;
+	background-size: 30px;
+    width: 30px;
+    height: 30px;
+    list-style: none;
+	display:inline-block;
+	margin: -1px;
+	cursor: pointer;
+}
+
+.starPoint.on {
+	background-image: url(../../images/star_filled.png);
+	background-position:0 0;
+}
+
+.reviewContent {
+	margin-top: 20px;
+	width: 100%;
+	height: 190px;
+}
+
+.reviewContent textarea {
+	resize:none;
+	width: 100%;
+	height: 100%;
+}
+
+.modalBtnArea {
+	text-align: right;
+	margin-top: 15px;
+}
+
+.modalBtn {
+	border: 1px solid #d8d8d8;
+    background: #fff;
+    width: 90px;
+    height: 25px;
+	cursor: pointer;
+}
+
+
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}

@@ -1,7 +1,9 @@
 package LF.faq.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,10 +47,12 @@ public class FaqinsertServlet extends HttpServlet {
 
 
 		int result = new fService().insertFaq(f);
-
 		if (result > 0) {
-
-			response.sendRedirect("list.fo");
+			PrintWriter writer = response.getWriter();
+			writer.println("<script>location.href='/Semi_LF/list.fo';</script>");
+			writer.flush();
+			writer.close();
+			return;
 		}
 
 	}

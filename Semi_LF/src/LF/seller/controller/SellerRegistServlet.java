@@ -2,6 +2,7 @@ package LF.seller.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
@@ -156,8 +157,14 @@ public class SellerRegistServlet extends HttpServlet {
 			if (result > 0) {	//성공했을 때
 				new SellerService().renameFile(saveFiles.get(0),fileList.get(0).getChangeName(), savePath);
 				
-				request.setAttribute("msg", "등록 완료");
-				request.getRequestDispatcher("views/seller/successPage.jsp").forward(request, response);
+				response.setContentType("text/html; charset=UTF-8");
+	            PrintWriter out = response.getWriter();
+	             
+	            out.println("<script>alert('판매자 신청이 완료되었습니다.'); location.href='views/Main/MainPage.jsp';</script>");
+	             
+	            out.flush();
+	            out.close();
+				
 //				response.sendRedirect("list.th");
 			} else {	//실패 시
 				// 실패시 저장된 사진 삭제

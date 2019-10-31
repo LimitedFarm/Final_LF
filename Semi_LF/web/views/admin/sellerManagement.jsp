@@ -393,11 +393,11 @@ function toggleActionStart(toggleBtn, LR) {
 			$(document).on('click', "#selectTd td", function(){
 				if($(this).attr("class") != "nonNextPage" && $(this).attr("class") != "updateTds"){
 					var sid=$(this).parent().children("input").val();
-					location.href="<%=request.getContextPath()%>/sinfo.ad?sid=" + sid;
+					location.href="<%=request.getContextPath()%>/sinfo.ad?currentPage=1&sid=" + sid;
+					/* selectSInfoServlet로 ㄱㄱ */
 				}
 			});
 		});
-		
 		
 	</script>
 </body>

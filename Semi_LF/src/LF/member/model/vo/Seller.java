@@ -43,6 +43,17 @@ public class Seller implements Serializable{
 
 	
 	
+	public Seller(String bName2, String bNum2, String cpNum2, String acNum2, String acName2, String bankName2,
+			int cId2) {
+		this.bName = bName2;
+		this.bNum = bNum2;
+		this.cpNum = cpNum2;
+		this.acNum = acNum2;
+		this.acName = acName2;
+		this.bankName = bankName2;
+		this.cid = cId2;
+	}
+
 	public int getSid() {
 		return sid;
 	}

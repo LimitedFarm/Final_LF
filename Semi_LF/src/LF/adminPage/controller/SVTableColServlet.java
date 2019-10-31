@@ -61,18 +61,12 @@ public class SVTableColServlet extends HttpServlet {
 			endPage = maxPage;
 		}
 		
-		PageInfo page = new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
+		ArrayList<PList> pList = new AdminService().sViewPTableCol(sid, currentPage, limit);
 		
-		ArrayList<PList> pList = aService.sViewPTableCol(sid, currentPage, limit);
-		
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		
-		map.put("col", pList);
-		map.put("page", page);
-		// 강사님에게 물어보자
+		// 테이블 정보 전송
 		response.setContentType("application/json;");
 		
-		new Gson().toJson(map, response.getWriter());
+		new Gson().toJson(pList, response.getWriter());
 		
 	}
 
