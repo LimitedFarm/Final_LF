@@ -247,7 +247,7 @@ COMMENT ON COLUMN Answer.cId IS '시퀀스를 통한 회원번호';
 
 CREATE TABLE orderList (
 	sale_Id	NUMBER		NOT NULL,
-	status	CHAR(1) CHECK(status in ('Y', 'N')),
+	status	CHAR(1) CHECK(status in ('Y', 'X', 'B', 'N')),
     pName	NVARCHAR2(20)		NOT NULL,
 	sale_date	DATE	DEFAULT SYSDATE	NOT NULL,
 	sCount	NUMBER		NOT NULL,
